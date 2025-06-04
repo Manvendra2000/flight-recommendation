@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> -trips </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://www.kiwi.com/styles/tailwind.search.7d80e640.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="header_sec">
+	<div class="forDesktopOnly">
+		<nav class="navbar navbar-expand-sm">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="#"> <img src="https://images.kiwi.com/common/kiwicom-logo.svg" /> </a>
+		    <div class="sidemenu">
+		    	<ul>
+		    		<li> <a href="javascript:;"> Flights </a> </li>
+		    		<li> <a href="javascript:;"> Cars </a> </li>
+		    		<li> <a href="javascript:;"> Stays </a> </li>
+		    		<li> <a href="javascript:;"> Stories </a> </li>
+		    		<li> <a href="javascript:;"> Travel hacks </a> </li>
+		    		<li> <a href="javascript:;"> Deals </a> </li>
+		    	</ul>
+		    </div>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		      <ul class="navbar-nav">
+		      	<li class="nav-item">
+		          <a class="nav-link" href="#"> <i class="fas fa-globe-europe"></i> INR</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">Help & Support</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#"> <i class="fas fa-user-circle"></i> Sign in</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">
+		          	<i class="fas fa-bars"></i>
+		          </a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	</div>
+	<div class="forMobileOnly">
+		<nav class="navbar navbar-expand-sm">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="#"> <img src="https://images.kiwi.com/common/kiwicom-logo-mobile-no-whitespace.svg" /> </a>
+		    <div class="sidemenu">
+		    	<ul>
+		    		<li> <a class="nav-link" href="#"> <i class="fas fa-user-circle"></i> Sign in</a> </li>
+		    		<li> <a href="javascript:;"> <i class="fas fa-bars"></i> </a> </li>
+		    	</ul>
+		    </div>
+		  </div>
+		</nav>
+	</div>
+</div>
+
+<div class="search_banner">
+	<div class="container">
+		<div class="banner_form">
+			<div class="form_dropdowns">
+				<ul>
+		            <li class="dropdown">
+				        <button class="custom-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            <span class="selected-text">Return</span>
+				            <svg class="ms-2" width="20" height="20" viewBox="0 0 24 24">
+				                <path d="M7.165 8.153a1.07 1.07 0 0 0-1.507-.078A1.063 1.063 0 0 0 5.58 9.58l5.672 6.27a1.07 1.07 0 0 0 1.587-.002l5.583-6.217a1.062 1.062 0 0 0-.083-1.503 1.07 1.07 0 0 0-1.507.083l-4.37 4.865a.568.568 0 0 1-.843.002L7.165 8.153Z"></path>
+				            </svg>
+				        </button>
+				        <ul class="dropdown-menu custom-dropdown-menu">
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Return')">
+				                <input type="radio" id="Return" name="trip-type-1" checked>
+				                <label for="Return">Return</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'One-way')">
+				                <input type="radio" id="One-way" name="trip-type-1">
+				                <label for="One-way">One-way</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Multi-city')">
+				                <input type="radio" id="Multi-city" name="trip-type-1">
+				                <label for="Multi-city">Multi-city</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Nomed')">
+				                <input type="radio" id="Nomed" name="trip-type-1">
+				                <label for="Nomed">Nomed</label>
+				            </a></li>
+				        </ul>
+				    </li>
+		            <li class="dropdown">
+				        <button class="custom-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            <span class="selected-text">Economy</span>
+				            <svg class="ms-2" width="20" height="20" viewBox="0 0 24 24">
+				                <path d="M7.165 8.153a1.07 1.07 0 0 0-1.507-.078A1.063 1.063 0 0 0 5.58 9.58l5.672 6.27a1.07 1.07 0 0 0 1.587-.002l5.583-6.217a1.062 1.062 0 0 0-.083-1.503 1.07 1.07 0 0 0-1.507.083l-4.37 4.865a.568.568 0 0 1-.843.002L7.165 8.153Z"></path>
+				            </svg>
+				        </button>
+				        <ul class="dropdown-menu custom-dropdown-menu">
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Economy')">
+				                <input type="radio" id="Economy" name="trip-type-2" checked>
+				                <label for="Economy">Economy</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Premium Economy')">
+				                <input type="radio" id="Premium" name="trip-type-2">
+				                <label for="Premium">Premium Economy</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Business')">
+				                <input type="radio" id="Business" name="trip-type-2">
+				                <label for="Business">Business</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'First Class')">
+				                <input type="radio" id="FirstClass" name="trip-type-2">
+				                <label for="FirstClass">First Class</label>
+				            </a></li>
+				            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Apply mixed classes')">
+				                <input type="radio" id="mixed-classe" name="trip-type-2">
+				                <label for="mixed-classe">Apply mixed classes</label>
+				            </a></li>
+				        </ul>
+				    </li>
+					<li class="passenger-dropdown">
+				        <a href="javascript:void(0);" onclick="toggleDropdown()"> 
+				        	<img style="width: 22px; position: relative; top: -1px;" src="images/pass_1.png" />
+				            <span id="totalPassengers"> 1 Passenger </span> <i class="fas fa-angle-down"></i>
+				        </a>
+				        <div class="dropdown-content" id="dropdownContent">
+				            <h5>Passengers</h5>
+
+				            <!-- Adults -->
+				            <div class="counter-item">
+				                <div>
+				                    <img src="images/pass_1.png" />
+				                    <span class="counter-title">Adults <small class="text-secondary">Over 11</small></span>
+				                </div>
+				                <div class="d-flex align-items-center">
+				                    <button class="counter-btn" onclick="updateCounter('adults', -1)">−</button>
+				                    <span id="adults" class="counter-value">1</span>
+				                    <button class="counter-btn" onclick="updateCounter('adults', 1)">+</button>
+				                </div>
+				            </div>
+
+				            <!-- Children -->
+				            <div class="counter-item">
+				                <div>
+				                    <img src="images/pass_2.png" />
+				                    <span class="counter-title">Children <small class="text-secondary">2 – 11</small></span>
+				                </div>
+				                <div class="d-flex align-items-center">
+				                    <button class="counter-btn" onclick="updateCounter('children', -1)">−</button>
+				                    <span id="children" class="counter-value">0</span>
+				                    <button class="counter-btn" onclick="updateCounter('children', 1)">+</button>
+				                </div>
+				            </div>
+
+				            <!-- Infants -->
+				            <div class="counter-item">
+				                <div>
+				                    <img src="images/pass_3.png" />
+				                    <span class="counter-title">Infants <small class="text-secondary">Under 2</small></span>
+				                </div>
+				                <div class="d-flex align-items-center">
+				                    <button class="counter-btn" onclick="updateCounter('infants', -1)">−</button>
+				                    <span id="infants" class="counter-value">0</span>
+				                    <button class="counter-btn" onclick="updateCounter('infants', 1)">+</button>
+				                </div>
+				            </div>
+
+				            <h5 class="mt-3">Bags</h5>
+
+				            <!-- Cabin Baggage -->
+				            <div class="counter-item">
+				                <div>
+				                    <img src="images/pass_4.png" />
+				                    <span class="counter-title">Cabin baggage</span>
+				                </div>
+				                <div class="d-flex align-items-center">
+				                    <button class="counter-btn" onclick="updateCounter('cabin', -1)">−</button>
+				                    <span id="cabin" class="counter-value">0</span>
+				                    <button class="counter-btn" onclick="updateCounter('cabin', 1)">+</button>
+				                </div>
+				            </div>
+
+				            <!-- Checked Baggage -->
+				            <div class="counter-item">
+				                <div>
+				                    <img src="images/pass_5.png" />
+				                    <span class="counter-title">Checked baggage</span>
+				                </div>
+				                <div class="d-flex align-items-center">
+				                    <button class="counter-btn" onclick="updateCounter('checked', -1)">−</button>
+				                    <span id="checked" class="counter-value">0</span>
+				                    <button class="counter-btn" onclick="updateCounter('checked', 1)">+</button>
+				                </div>
+				            </div>
+				        </div>
+				    </li>
+				</ul>
+			</div>
+			<div class="row bsgutter10">
+				<div class="col-md-3 col-lg-3">
+				    <div class="form_field">
+				        <div class="input-group autocomplete-container fromInput">
+				            <span class="input-group-text" onclick="triggerInputClick('fromInput', 'fromDropdown', 'selectedFromLocations')">From</span>
+				            <div id="selectedFromLocations" class="selected-locations"></div>
+				            <input type="text" id="fromInput" class="form-control" placeholder="City, airport or place" onclick="filterDropdown('fromInput', 'fromDropdown', 'selectedFromLocations')" />
+				        </div>
+				        <div id="fromDropdown" class="autocomplete-dropdown"></div>
+				    </div>
+				</div>
+
+				<div class="col-md-3 col-lg-3">
+				    <div class="form_field">
+				        <div class="input-group autocomplete-container toInput">
+				            <span class="input-group-text" onclick="triggerInputClick('toInput', 'toDropdown', 'selectedToLocations')">To</span>
+				            <div id="selectedToLocations" class="selected-locations"></div>
+				            <input type="text" id="toInput" class="form-control" placeholder="City, airport or place" onclick="filterDropdown('toInput', 'toDropdown', 'selectedToLocations')" />
+				        </div>
+				        <div id="toDropdown" class="autocomplete-dropdown"></div>
+				    </div>
+				</div>
+
+				<div class="col-md-6 col-lg-6">
+					<div class="calendar_outer">
+						<div class="row bsgutter10">
+							<div class="col-md-6 col-lg-6">
+							    <div class="input-group">
+							        <span class="input-group-text">Departure</span>
+							        <input type="text" class="form-control" id="departure" placeholder="Anytime" readonly onclick="toggleDatePicker()">
+							    </div>
+							</div>
+
+							<div class="col-md-6 col-lg-6">
+							    <div class="input-group">
+							        <span class="input-group-text">Return</span>
+							        <input type="text" class="form-control" id="return" placeholder="Anytime" readonly onclick="toggleDatePicker()">
+							    </div>
+							</div>
+						</div>
+						<div class="datepicker-container" id="datepicker" style="display: none;">
+					        <div class="calendar">
+					            <div class="month">
+					            	<div class="three_btns">
+					            		<ul>
+					            			<li> <a href="javascript:;"> <img src="images/day1.png"> </a> </li>
+					            			<li> <a href="javascript:;"> <img src="images/day3.png"> </a> </li>
+					            			<li> <a href="javascript:;"> <img src="images/day5.png"> </a> </li>
+					            		</ul>
+					            	</div>
+					                <h2><img src="images/arrowLeft.png">March 2025</h2>
+					                <div class="days" id="march"></div>
+					            </div>
+					            <div class="month">
+					            	<div class="three_btns">
+					            		<ul>
+					            			<li> <a href="javascript:;"> <img src="images/day1.png"> </a> </li>
+					            			<li> <a href="javascript:;"> <img src="images/day3.png"> </a> </li>
+					            			<li> <a href="javascript:;"> <img src="images/day5.png"> </a> </li>
+					            		</ul>
+					            	</div>
+					                <h2>April 2025<img style="right: 0; left: auto;" src="images/arrowRight.png"></h2>
+					                <div class="days" id="april"></div>
+					            </div>
+					        </div>
+					        <div class="buttons">
+					            <button class="cancelButton" onclick="clearDates()">Cancel</button>
+					            <button class="setButton" onclick="setDates()">Set dates</button>
+					        </div>
+					    </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="filter_sec">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="filter-section">
+				    <!-- Accordion Item: Price Alerts -->
+				    <div class="accordion-item">
+				      <div class="accordion-header">Set up price alerts</div>
+				      <div class="accordion-body show">
+				        <p>Receive alerts when the prices for this route change.</p>
+				      </div>
+				    </div>
+
+				    <!-- Accordion Item: Bags -->
+				    <div class="accordion-item">
+				      <div class="accordion-header">Bags</div>
+				      <div class="accordion-body">
+				        <div class="input-group">
+				          <span>🧳 Cabin baggage</span>
+				          <button class="decrease2" data-target="cabin2">-</button>
+				          <input id="cabin2" type="text" value="1" readonly />
+				          <button class="increase2" data-target="cabin2">+</button>
+				        </div>
+				        <div class="input-group">
+				          <span>💼 Checked baggage</span>
+				          <button class="decrease2" data-target="checked2">-</button>
+				          <input id="checked2" type="text" value="1" readonly />
+				          <button class="increase2" data-target="checked2">+</button>
+				        </div>
+				      </div>
+				    </div>
+
+				    <!-- Accordion Item: Stops -->
+				    <div class="accordion-item">
+				      <div class="accordion-header">Stops</div>
+				      <div class="accordion-body">
+				        <div class="form-check">
+				          <input type="radio" name="stops" id="any" checked />
+				          <label for="any">Any</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="radio" name="stops" id="direct" />
+				          <label for="direct">Direct</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="radio" name="stops" id="oneStop" />
+				          <label for="oneStop">Up to 1 stop</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="radio" name="stops" id="twoStops" />
+				          <label for="twoStops">Up to 2 stops</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="checkbox" id="overnight" checked />
+				          <label for="overnight">Allow overnight stopovers</label>
+				        </div>
+				      </div>
+				    </div>
+
+				    <!-- Accordion Item: Connections -->
+				    <div class="accordion-item">
+				      <div class="accordion-header">Connections</div>
+				      <div class="accordion-body">
+				        <div class="form-check">
+				          <input type="checkbox" id="selfTransfer" checked />
+				          <label for="selfTransfer">Self-transfer to different station/airport</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="checkbox" id="returnDifferent" checked />
+				          <label for="returnDifferent">Allow return from a different station/airport</label>
+				        </div>
+				        <div class="form-check">
+				          <input type="checkbox" id="returnAnother" checked />
+				          <label for="returnAnother">Allow return to a different station/airport</label>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-md-6">
+				<div class="rounded">
+				  <ul class="nav nav-tabs">
+				    <li class="nav-item">
+				      <a class="nav-link active fw-bold" data-bs-toggle="tab" href="#best">
+				       	<strong> Best </strong> <br /> <span class="text-dark">19,724 ₹ · 11h 00m</span>
+				      </a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link fw-bold" data-bs-toggle="tab" href="#cheapest">
+				        <strong> Cheapest </strong> <br><span class="text-dark">19,724 ₹ · 11h 00m</span>
+				      </a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link fw-bold" data-bs-toggle="tab" href="#fastest">
+				        <strong> Fastest </strong> <br><span class="text-dark">99,816 ₹ · 7h 40m</span>
+				      </a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link fw-bold" data-bs-toggle="tab" href="#other">
+				        <strong> Other options </strong> <br><span class="text-dark">Earliest departure</span>
+				      </a>
+				    </li>
+				  </ul>
+
+				  <div class="tab-content">
+				    <div class="tab-pane fade show active" id="best">
+					    <div class="rounded overflow-hidden card_shadow" data-bs-toggle="modal" data-bs-target="#flightModal">
+						    <div class="row g-0">
+						      <!-- Flight Info -->
+						      <div class="col-md-8 p-3 card">
+						        <h6 class="text-muted mb-2">Outbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">17:30</h5>
+						            <small class="text-warning fw-semibold">STN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">3h 45m</span>						            
+						            <img src="https://images.kiwi.com/airlines/64x64/PC.png?default=airline.png" width="32" alt="Pegasus"><br>
+
+						            <div class="small text-muted">Direct</div>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">23:15</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <h6 class="text-muted mb-2">Inbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">19:05</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">7h 05m</span>
+						            <img src="https://images.kiwi.com/airlines/64x64/W9.png?default=airline.png" width="32" alt="Wizz"><br>
+						            <a href="#" class="text-decoration-none small text-primary stop1">1 stop · Dalaman</a>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">00:10+1</h5>
+						            <small class="text-warning fw-semibold">LTN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <div class="d-flex align-items-center gap-3">
+						          <div><i class="bi bi-suitcase"></i> 1</div>
+						          <div><i class="bi bi-people"></i> 0</div>
+						          <div><i class="bi bi-trash"></i> 0</div>
+						          <div class="ms-auto">
+						            <span class="badge bg-light text-dark border"><i class="bi bi-star-fill text-dark me-1"></i> Self-transfer hack</span>
+						          </div>
+						        </div>
+						      </div>
+
+						      <!-- Price & Select -->
+						      <div class="col-md-4 card d-flex flex-column justify-content-center align-items-center p-3">
+						        <h4 class="fw-bold mb-3">18,399 ₹</h4>
+						        <button class="btn btn-success selectedBtn w-100">Select</button>
+						      </div>
+						    </div>
+						  </div>
+				    </div>
+				    <div class="tab-pane fade" id="cheapest">
+				      <div class="rounded overflow-hidden card_shadow">
+						    <div class="row g-0">
+						      <!-- Flight Info -->
+						      <div class="col-md-8 p-3 card">
+						        <h6 class="text-muted mb-2">Outbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">17:30</h5>
+						            <small class="text-warning fw-semibold">STN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">3h 45m</span>						            
+						            <img src="https://images.kiwi.com/airlines/64x64/PC.png?default=airline.png" width="32" alt="Pegasus"><br>
+
+						            <div class="small text-muted">Direct</div>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">23:15</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <h6 class="text-muted mb-2">Inbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">19:05</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">7h 05m</span>
+						            <img src="https://images.kiwi.com/airlines/64x64/W9.png?default=airline.png" width="32" alt="Wizz"><br>
+						            <a href="#" class="text-decoration-none small text-primary stop1">1 stop · Dalaman</a>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">00:10+1</h5>
+						            <small class="text-warning fw-semibold">LTN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <div class="d-flex align-items-center gap-3">
+						          <div><i class="bi bi-suitcase"></i> 1</div>
+						          <div><i class="bi bi-people"></i> 0</div>
+						          <div><i class="bi bi-trash"></i> 0</div>
+						          <div class="ms-auto">
+						            <span class="badge bg-light text-dark border"><i class="bi bi-star-fill text-dark me-1"></i> Self-transfer hack</span>
+						          </div>
+						        </div>
+						      </div>
+
+						      <!-- Price & Select -->
+						      <div class="col-md-4 card d-flex flex-column justify-content-center align-items-center p-3">
+						        <h4 class="fw-bold mb-3">18,399 ₹</h4>
+						        <button class="btn btn-success selectedBtn w-100">Select</button>
+						      </div>
+						    </div>
+						  </div>
+				    </div>
+				    <div class="tab-pane fade" id="fastest">
+				      <div class="rounded overflow-hidden card_shadow">
+						    <div class="row g-0">
+						      <!-- Flight Info -->
+						      <div class="col-md-8 p-3 card">
+						        <h6 class="text-muted mb-2">Outbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">17:30</h5>
+						            <small class="text-warning fw-semibold">STN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">3h 45m</span>						            
+						            <img src="https://images.kiwi.com/airlines/64x64/PC.png?default=airline.png" width="32" alt="Pegasus"><br>
+
+						            <div class="small text-muted">Direct</div>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">23:15</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <h6 class="text-muted mb-2">Inbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">19:05</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">7h 05m</span>
+						            <img src="https://images.kiwi.com/airlines/64x64/W9.png?default=airline.png" width="32" alt="Wizz"><br>
+						            <a href="#" class="text-decoration-none small text-primary stop1">1 stop · Dalaman</a>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">00:10+1</h5>
+						            <small class="text-warning fw-semibold"> LTN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <div class="d-flex align-items-center gap-3">
+						          <div><i class="bi bi-suitcase"></i> 1</div>
+						          <div><i class="bi bi-people"></i> 0</div>
+						          <div><i class="bi bi-trash"></i> 0</div>
+						          <div class="ms-auto">
+						            <span class="badge bg-light text-dark border"><i class="bi bi-star-fill text-dark me-1"></i> Self-transfer hack</span>
+						          </div>
+						        </div>
+						      </div>
+
+						      <!-- Price & Select -->
+						      <div class="col-md-4 card d-flex flex-column justify-content-center align-items-center p-3">
+						        <h4 class="fw-bold mb-3">18,399 ₹</h4>
+						        <button class="btn btn-success selectedBtn w-100">Select</button>
+						      </div>
+						    </div>
+						  </div>
+				    </div>
+				    <div class="tab-pane fade" id="other">
+				      <div class="rounded overflow-hidden card_shadow">
+						    <div class="row g-0">
+						      <!-- Flight Info -->
+						      <div class="col-md-8 p-3 card">
+						        <h6 class="text-muted mb-2">Outbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">17:30</h5>
+						            <small class="text-warning fw-semibold">STN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">3h 45m</span>						            
+						            <img src="https://images.kiwi.com/airlines/64x64/PC.png?default=airline.png" width="32" alt="Pegasus"><br>
+
+						            <div class="small text-muted">Direct</div>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">23:15</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <h6 class="text-muted mb-2">Inbound</h6>
+						        <div class="d-flex justify-content-between align-items-center mergeline">
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">19:05</h5>
+						            <small class="text-muted">SAW</small>
+						          </div>
+						          <div class="text-center changeBGColor">
+						            <span class="badge bg-light text-dark border mb-1">7h 05m</span>
+						            <img src="https://images.kiwi.com/airlines/64x64/W9.png?default=airline.png" width="32" alt="Wizz"><br>
+						            <a href="#" class="text-decoration-none small text-primary stop1">1 stop · Dalaman</a>
+						          </div>
+						          <div class="changeBGColor">
+						            <h5 class="fw-bold mb-0">00:10+1</h5>
+						            <small class="text-warning fw-semibold">LTN <i class="bi bi-exclamation-circle"></i></small>
+						          </div>
+						        </div>
+
+						        <hr>
+
+						        <div class="d-flex align-items-center gap-3">
+						          <div><i class="bi bi-suitcase"></i> 1</div>
+						          <div><i class="bi bi-people"></i> 0</div>
+						          <div><i class="bi bi-trash"></i> 0</div>
+						          <div class="ms-auto">
+						            <span class="badge bg-light text-dark border"><i class="bi bi-star-fill text-dark me-1"></i> Self-transfer hack</span>
+						          </div>
+						        </div>
+						      </div>
+
+						      <!-- Price & Select -->
+						      <div class="col-md-4 card d-flex flex-column justify-content-center align-items-center p-3">
+						        <h4 class="fw-bold mb-3">18,399 ₹</h4>
+						        <button class="btn btn-success selectedBtn w-100">Select</button>
+						      </div>
+						    </div>
+						  </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="flightModal" tabindex="-1" aria-labelledby="flightModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="flightModalLabel">Trip details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card p-4 card-rounded shadow-sm">
+          <div class="border p-3 rounded mb-3">
+            <div><strong>London → Istanbul</strong></div>
+            <div class="text-muted small-text">Pegasus</div>
+            <div class="text-muted small-text"><i class="bi bi-arrow-right-circle-fill"></i> Direct flight</div>
+            <hr>
+            <div><strong>Istanbul → London</strong></div>
+            <div class="text-muted small-text">AJet, Wizz Air UK</div>
+            <ul class="small-text ps-3 mt-2">
+              <li>1h 20m layover in Dalaman (DLM)</li>
+              <li>Your flight to London is returning to a different airport (LTN)</li>
+              <li class="highlight-warning">Self-transfer hack: Transport to your connecting flights is your responsibility</li>
+            </ul>
+          </div>
+          <a href="#" class="text-decoration-none text-primary small-text">Show full details</a>
+        </div>
+
+        <div class="mt-4 mb-3">
+          <h5>Choose a booking option</h5>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="option-box h-100">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">Best value</span>
+                <img src="https://cdn.kiwi.com/favicon.ico" width="20" alt="Kiwi logo">
+              </div>
+              <h6 class="mt-2">Kiwi.com Benefits</h6>
+              <ul class="small-text ps-3">
+                <li>Disruption Protection</li>
+                <li>Live Boarding Pass</li>
+                <li>Savings on baggage & seating</li>
+              </ul>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price-tag">21,022 ₹</span>
+                <button class="btn btn-success">Continue</button>
+              </div>
+              <div class="lock-price mt-2"><i class="bi bi-lock-fill"></i> Lock price for 72 hours for 2,102 ₹</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="option-box h-100">
+              <span class="badge bg-dark">Starter</span>
+              <h6 class="mt-2">Kiwi.com Basic</h6>
+              <ul class="small-text ps-3">
+                <li>Connection Protection</li>
+                <li>Start simple, build from there</li>
+              </ul>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price-tag">18,817 ₹</span>
+                <button class="btn btn-dark">Continue</button>
+              </div>
+              <div class="lock-price mt-2"><i class="bi bi-lock-fill"></i> Lock price for 72 hours for 1,882 ₹</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-3 mt-4 card-rounded shadow-sm">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="https://img.icons8.com/color/48/000000/group.png" width="30" class="me-2" alt="Group Icon">
+              <span class="small-text">Traveling with someone? <a href="#" class="text-decoration-none text-primary">Share itinerary details</a></span>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm">
+              <i class="bi bi-share-fill me-1"></i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+
+<script>
+    // Accordion toggle
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        const isOpen = body.classList.contains('show');
+        document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('show'));
+        document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+        if (!isOpen) {
+          body.classList.add('show');
+          header.classList.add('active');
+        }
+      });
+    });
+
+    // Plus/minus functionality
+    document.querySelectorAll('.increase2').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        let value = parseInt(target.value, 10);
+        target.value = value + 1;
+      });
+    });
+
+    document.querySelectorAll('.decrease2').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        let value = parseInt(target.value, 10);
+        if (value > 1) {
+          target.value = value - 1;
+        }
+      });
+    });
+  </script>
+
+<script>
+    function selectOption(element, option) {
+        let dropdown = element.closest(".dropdown"); // Find the parent dropdown
+        let selectedText = dropdown.querySelector(".selected-text"); // Update only this dropdown
+        selectedText.textContent = option;
+    }
+</script>
+
+<script>
+ const places = {
+    "Your locations": [
+        { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
+        { name: "London, United Kingdom", icon: "<img src='images/drop1.png' width='20' height='20'>" }
+    ],
+    "Near you": [
+        { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
+        { name: "250 km around Indore", icon: "<img src='images/drop2.png' width='20' height='20'>" },
+        { name: "IDR Indore - Devi Ahilya Bai Holkar", icon: "<img src='images/drop1.png' width='20' height='20'>" }
+    ]
+};
+
+
+function filterDropdown(inputId, dropdownId, selectedContainerId) {
+    const input = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+    const inputValue = input.value.trim().toLowerCase();
+
+    dropdown.innerHTML = "";
+    let hasResults = false;
+
+    Object.keys(places).forEach(category => {
+        const filteredItems = places[category].filter(place => place.name.toLowerCase().includes(inputValue));
+
+        if (filteredItems.length > 0) {
+            hasResults = true;
+            const groupLabel = document.createElement("div");
+            groupLabel.className = "group-label";
+            groupLabel.textContent = category;
+            dropdown.appendChild(groupLabel);
+
+            filteredItems.forEach(place => {
+                const div = document.createElement("div");
+                div.className = "autocomplete-item";
+                div.innerHTML = `<span class='icon'>${place.icon}</span> ${place.name} <span class='plus-icon'>+</span>`;
+                div.onclick = () => selectLocation(place.name, selectedContainerId, inputId, dropdownId);
+                dropdown.appendChild(div);
+            });
+        }
+    });
+
+    dropdown.style.display = hasResults ? "block" : "none";
+}
+
+function removeLocation(element, inputId) {
+    const selectedContainer = element.parentElement.parentElement;
+    element.parentElement.remove();
+    checkAndDisplayMergeIcon();
+
+    const input = document.getElementById(inputId);
+    const inputParent = input.parentElement; // Get the input's parent element
+
+    // Restore placeholder if no selections remain
+    if (selectedContainer.children.length === 1) { // Only "More" button remains
+        input.placeholder = "City, airport or place";
+        document.getElementById(`moreBtn-${selectedContainer.id}`).remove();
+    }
+
+    // If no selected locations remain, add red border to input's parent
+    if (selectedContainer.children.length === 0) {
+        inputParent.style.border = "2px solid red";
+    }
+}
+
+// Ensure the border is removed when a location is selected
+function selectLocation(location, selectedContainerId, inputId, dropdownId) {
+    const input = document.getElementById(inputId);
+    input.value = "";
+    input.placeholder = ""; // Hide placeholder after selection
+    document.getElementById(dropdownId).style.display = "none";
+
+    const inputParent = input.parentElement; // Get the input's parent element
+    inputParent.style.border = ""; // Remove red border on selection
+
+    const selectedLocations = document.getElementById(selectedContainerId);
+
+    if (selectedLocations.children.length >= 2) return;
+
+    const selectedDiv = document.createElement("div");
+    selectedDiv.className = "selected-location";
+    selectedDiv.innerHTML = `
+        <span>${location}</span> 
+        <span class='remove-icon' onclick='removeLocation(this, "${inputId}")'>×</span>
+    `;
+
+    selectedLocations.appendChild(selectedDiv);
+
+    if (selectedLocations.children.length === 1) {
+        addMoreButton(selectedContainerId, inputId);
+    }
+
+    checkAndDisplayMergeIcon();
+}
+
+function addMoreButton(selectedContainerId, inputId) {
+    const selectedLocations = document.getElementById(selectedContainerId);
+    
+    // Check if "More" button already exists
+    if (document.getElementById(`moreBtn-${selectedContainerId}`)) return;
+
+    // Create "More" button
+    const moreBtn = document.createElement("button");
+    moreBtn.id = `moreBtn-${selectedContainerId}`;
+    moreBtn.className = "more-btn";
+    moreBtn.innerText = "Add more";
+    moreBtn.onclick = () => {
+        document.getElementById(inputId).focus();
+    };
+
+    selectedLocations.appendChild(moreBtn);
+}
+
+function checkAndDisplayMergeIcon() {
+    const fromSelected = document.getElementById("selectedFromLocations").children.length > 0;
+    const toSelected = document.getElementById("selectedToLocations").children.length > 0;
+    const mergeIcon = document.getElementById("mergeIcon");
+
+    if (fromSelected && toSelected) {
+        if (!mergeIcon) {
+            const mergeDiv = document.createElement("div");
+            mergeDiv.id = "mergeIcon";
+            mergeDiv.className = "merge-icon";
+            mergeDiv.innerHTML = "<img class='swipeB' src='images/swipeB.png' /><img class='swipeW' style='display: none;' src='images/swipeW.png' />"; // Merge icon
+            document.querySelector(".input-group.autocomplete-container").after(mergeDiv);
+        }
+    } else {
+        if (mergeIcon) mergeIcon.remove();
+    }
+}
+
+function triggerInputClick(inputId, dropdownId, selectedContainerId) {
+    const input = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+
+    input.focus(); // Set focus on the input
+    filterDropdown(inputId, dropdownId, selectedContainerId); // Manually trigger dropdown display
+
+    // Ensure dropdown is visible
+    dropdown.style.display = "block";
+}
+
+
+document.addEventListener("click", function (event) {
+    const dropdowns = document.querySelectorAll(".autocomplete-dropdown");
+    dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+});
+
+
+</script>
+
+
+
+<script>
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     let returnPicker = flatpickr("#return", {
+    //         dateFormat: "D, d M",
+    //         minDate: "today",
+    //         showMonths: 2
+    //     });
+
+    //     flatpickr("#departure", {
+    //         dateFormat: "D, d M",
+    //         minDate: "today",
+    //         showMonths: 2,
+    //         onChange: function(selectedDates, dateStr) {
+    //             returnPicker.set("minDate", dateStr); // Update return date min value
+    //             document.getElementById("return").focus(); // Auto jump to return input
+    //             returnPicker.open(); // Open return date picker
+    //         }
+    //     });
+    // });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const dropdownBtn = dropdown.querySelector(".dropbtn");
+        const dropdownContent = dropdown.querySelector(".dropdown-content");
+        const options = dropdown.querySelectorAll(".dropdown-content a");
+
+        // Toggle dropdown on button click
+        dropdownBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            // Close all other dropdowns before opening this one
+            document.querySelectorAll(".dropdown-content").forEach(content => {
+                if (content !== dropdownContent) content.style.display = "none";
+            });
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        });
+
+        // Select option and update button text
+        options.forEach(option => {
+            option.addEventListener("click", function () {
+                const selectedValue = this.getAttribute("data-value");
+                dropdownBtn.innerHTML = selectedValue + ' <i class="fas fa-angle-down"></i>';
+                dropdownContent.style.display = "none"; // Hide dropdown after selection
+            });
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener("click", function (event) {
+            if (!dropdown.contains(event.target)) {
+                dropdownContent.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    function toggleDropdown() {
+        let dropdown = document.getElementById("dropdownContent");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close dropdown if clicked outside
+    document.addEventListener("click", function(event) {
+        let dropdown = document.getElementById("dropdownContent");
+        let trigger = document.querySelector(".passenger-dropdown a");
+        if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+
+    function updateCounter(id, change) {
+        let element = document.getElementById(id);
+        let currentValue = parseInt(element.textContent);
+        if (currentValue + change >= 0) {
+            element.textContent = currentValue + change;
+        }
+        updateTotalPassengers();
+    }
+
+    function updateTotalPassengers() {
+        let adults = parseInt(document.getElementById("adults").textContent);
+        let children = parseInt(document.getElementById("children").textContent);
+        let infants = parseInt(document.getElementById("infants").textContent);
+
+        let total = adults + children + infants;
+        document.getElementById("totalPassengers").textContent = total + (total === 1 ? " Passenger" : " Passengers");
+    }
+</script>
+
+<script>
+var words = document.getElementsByClassName('word');
+var wordArray = [];
+var currentWord = 0;
+
+words[currentWord].style.opacity = 1;
+for (var i = 0; i < words.length; i++) {
+  splitLetters(words[i]);
+}
+
+function changeWord() {
+  var cw = wordArray[currentWord];
+  var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
+  for (var i = 0; i < cw.length; i++) {
+    animateLetterOut(cw, i);
+  }
+  
+  for (var i = 0; i < nw.length; i++) {
+    nw[i].className = 'letter behind';
+    nw[0].parentElement.style.opacity = 1;
+    animateLetterIn(nw, i);
+  }
+  
+  currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
+}
+
+function animateLetterOut(cw, i) {
+  setTimeout(function() {
+		cw[i].className = 'letter out';
+  }, i*80);
+}
+
+function animateLetterIn(nw, i) {
+  setTimeout(function() {
+		nw[i].className = 'letter in';
+  }, 340+(i*80));
+}
+
+function splitLetters(word) {
+  var content = word.innerHTML;
+  word.innerHTML = '';
+  var letters = [];
+  
+  for (var i = 0; i < content.length; i++) {
+    var letter = document.createElement('span');
+    letter.className = 'letter';
+    letter.innerHTML = content.charAt(i) === ' ' ? '&nbsp;' : content.charAt(i);
+    word.appendChild(letter);
+    letters.push(letter);
+  }
+  
+  wordArray.push(letters);
+}
+
+changeWord();
+setInterval(changeWord, 4000);
+
+</script>
+
+	<script>
+	         let departureDate = null;
+        let returnDate = null;
+
+        function toggleDatePicker() {
+            const datepicker = document.getElementById("datepicker");
+            datepicker.style.display = datepicker.style.display === "none" ? "flex" : "none";
+        }
+
+        function generateCalendar(monthId, days) {
+            const container = document.getElementById(monthId);
+            container.innerHTML = "";
+            for (let i = 1; i <= days; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.classList.add('day');
+                dayElement.innerText = i;
+                dayElement.dataset.day = i;
+                dayElement.dataset.month = monthId;
+                dayElement.onclick = () => selectDate(i, monthId, dayElement);
+                container.appendChild(dayElement);
+            }
+        }
+
+        function selectDate(day, month, element) {
+            if (departureDate && returnDate) {
+                clearDates();
+            }
+
+            if (!departureDate) {
+                departureDate = { day, month };
+                document.getElementById("departure").value = `${month} ${day}, 2025`;
+                element.classList.add("selected-departure");
+            } else {
+                returnDate = { day, month };
+                document.getElementById("return").value = `${month} ${day}, 2025`;
+                element.classList.add("selected-return");
+                document.getElementById("datepicker").style.display = "none";
+            }
+        }
+
+        function adjustDate(days) {
+            if (!departureDate) return;
+            let currentDate = new Date(2025, getMonthIndex(departureDate.month), departureDate.day);
+            currentDate.setDate(currentDate.getDate() + days);
+            returnDate = {
+                day: currentDate.getDate(),
+                month: getMonthName(currentDate.getMonth())
+            };
+            document.getElementById("return").value = `${returnDate.month} ${returnDate.day}, 2025`;
+        }
+
+        function getMonthIndex(monthName) {
+            const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+            return months.indexOf(monthName.toLowerCase());
+        }
+
+        function getMonthName(monthIndex) {
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return months[monthIndex];
+        }
+
+        function clearDates() {
+            document.getElementById("departure").value = "";
+            document.getElementById("return").value = "";
+            departureDate = null;
+            returnDate = null;
+        }
+
+        function setDates() {
+            alert(`Departure: ${document.getElementById("departure").value}\nReturn: ${document.getElementById("return").value}`);
+            document.getElementById("datepicker").style.display = "none";
+        }
+
+        generateCalendar("march", 31);
+        generateCalendar("april", 30);
+    </script>
+
+    <script>
+    	document.addEventListener("DOMContentLoaded", function () {
+    function handleClickOutside(event, containerClass) {
+        document.querySelectorAll("." + containerClass).forEach(container => {
+            if (!container.contains(event.target)) {
+                container.classList.remove("setIndex");
+            }
+        });
+    }
+
+    document.querySelectorAll(".autocomplete-container").forEach(container => {
+        container.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent click from immediately closing
+            container.classList.add("setIndex");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        handleClickOutside(event, "autocomplete-container");
+    });
+});
+    </script>
+
+
+
+</body>
+</html>
