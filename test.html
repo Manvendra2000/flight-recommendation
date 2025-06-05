@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flight Search</title>
+</head>
+<body>
+    <h3>Flight Search Test</h3>
+
+    <label>From (IATA):</label>
+    <input id="fromInput" placeholder="DEL"><br><br>
+  
+    <label>To (IATA):</label>
+    <input id="toInput" placeholder="BOM"><br><br>
+  
+    <label>Departure Date:</label>
+    <input id="departure" type="date"><br><br>
+  
+    <label>Return Date:</label>
+    <input id="returnDate" type="date"><br><br>
+  
+    <label>Class:</label><br>
+    <input type="radio" name="trip-type-2" value="e" checked> Economy<br>
+    <input type="radio" name="trip-type-2" value="pe"> Premium Economy<br>
+    <input type="radio" name="trip-type-2" value="b"> Business<br>
+    <input type="radio" name="trip-type-2" value="f"> First<br><br>
+  
+    <button id="goBtn" onclick="fetchFlights()" >Go</button>
+
+    <pre id="output">Waiting...</pre>
+  <script src="js/script.js"></script>
+</body>
+</html>
