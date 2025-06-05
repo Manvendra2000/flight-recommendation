@@ -113,22 +113,22 @@
 						        <ul class="dropdown-menu custom-dropdown-menu">
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Economy')">
 						                <input type="radio" id="Economy" name="trip-type-2" checked>
-						                <label for="Economy">Economy</label>
+						                <label for="Economy" value="e">Economy</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Premium Economy')">
 						                <input type="radio" id="Premium" name="trip-type-2">
-						                <label for="Premium">Premium Economy</label>
+						                <label for="Premium" value="pe">Premium Economy</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Business')">
-						                <input type="radio" id="Business" name="trip-type-2">
+						                <input type="radio" id="Business" name="trip-type-2" value="b" >
 						                <label for="Business">Business</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'First Class')">
 						                <input type="radio" id="FirstClass" name="trip-type-2">
-						                <label for="FirstClass">First Class</label>
+						                <label for="FirstClass" value="f" >First Class</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Apply mixed classes')">
-						                <input type="radio" id="mixed-classe" name="trip-type-2">
+						                <input type="radio" id="mixed-classe" name="trip-type-2" value="cm" >
 						                <label for="mixed-classe">Apply mixed classes</label>
 						            </a></li>
 						        </ul>
@@ -241,15 +241,17 @@
 										<div class="row bsgutter10">
 											<div class="col-md-6 col-lg-6">
 											    <div class="input-group">
-											        <span class="input-group-text">Departure</span>
-											        <input type="text" class="form-control" id="departure" placeholder="Anytime" readonly onclick="toggleDatePicker()">
+											        <span class="input-group-text">    <label>Departure Date:</label>
+														<input id="departure" type="date"><br><br></span>
+											        <!-- <input type="text" class="form-control" id="departure" placeholder="Anytime" readonly onclick="toggleDatePicker()"> -->
 											    </div>
 											</div>
 
 											<div class="col-md-6 col-lg-6">
 											    <div class="input-group">
-											        <span class="input-group-text">Return</span>
-											        <input type="text" class="form-control" id="return" placeholder="Anytime" readonly onclick="toggleDatePicker()">
+											        <span class="input-group-text"> <label>Return Date:</label>
+														<input id="returnDate" type="date"><br><br></span>
+											        <!-- <input type="text" class="form-control" id="return" placeholder="Anytime" readonly onclick="toggleDatePicker()"> -->
 											    </div>
 											</div>
 										</div>
@@ -289,7 +291,8 @@
 							</div>
 						</div>
 						<div class="col-md-1 col-lg-1 width10">
-							<button type="button" class="exploreBtn"> Explore </button>
+							<!-- <button type="button" class="exploreBtn" id="exploreBtn" onclick="fetchFlights()"> Explore </button> -->
+							<button type="button" class="exploreBtn" id="exploreBtn" onclick="redirectWithParams()">Explore</button>
 						</div>
 					</div>
 					<div class="checkbooking">
@@ -360,7 +363,7 @@
 						 </div>
 					</div>
 					<div class="form-group">
-						<button type="button" class="exploreBtn"> Explore </button>
+						<button type="button" class="exploreBtn" onclick="fetchFlights()"> Explore </button>
 					</div>
 					<div class="checkbooking">
 						<input type="checkbox" id="html" />
@@ -768,7 +771,8 @@
     </ul>
   </div>
 
-
+<!-- javascript files -->
+<script src="/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -1206,6 +1210,21 @@ setInterval(changeWord, 4000);
     });
 });
     </script>
+
+	<!-- <script src="js/script.js"></script> -->
+	<script>
+		function redirectWithParams() {
+			const from = document.getElementById('fromInput').value.trim().toUpperCase();
+			const to = document.getElementById('toInput').value.trim().toUpperCase();
+			const start = document.getElementById('departure').value;
+			const end = document.getElementById('returnDate').value;
+			const cls = document.querySelector('input[name="trip-type-2"]:checked').value;
+
+		
+		  const url = `search.html?origin=${from}&destination=${to}&startDate=${start}&endDate=${end}&class=${cls}`;
+		  window.location.href = url;
+		}
+		</script>
 
 </body>
 </html>
