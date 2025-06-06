@@ -6,7 +6,7 @@ async function scrapeIxigo(origin, destination, date) {
   const url = `https://www.ixigo.com/search/result/flight/${origin}/${destination}/${date}/1/0/0/e`;
 
   await page.goto(url, { waitUntil: 'domcontentloaded' });
-
+  await new Promise(resolve => setTimeout(resolve, 5000));
   // Update: Wait for a real, reliable selector
   await page.waitForSelector('[data-testid="pricing"]');
 

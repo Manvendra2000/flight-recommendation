@@ -115,6 +115,8 @@
 			                                            <div class="orbit-heading font-base m-0 text-heading-foreground text-heading-title3 leading-heading-title3 font-heading-title3 text-start">
 			                                                <div class="orbit-stack items-start content-start flex-nowrap grow shrink-0 justify-start flex-row flex gap-400 w-full">
 			                                                    <p elementtiming="passengers-form-heading" style="line-height: inherit;">Trip summary</p>
+																<div id="flightsContainer"></div>
+																
 			                                                </div>
 			                                            </div>
 			                                        </div>
@@ -5628,6 +5630,46 @@
 
 	    updateStepUI();
 	</script>
+	<script>
+		const params = new URLSearchParams(window.location.search);
+		const token = params.get('token');
+		const provider = params.get('provider');
+		
+		const url = `http://localhost:8000/api/flightPoll.php?token=${token}&provider=${provider}`;
+		
+		fetch(url)
+		  .then(res => res.json())
+		  .then(data => {
+			console.log(data); // full flight details
+			document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+		  })
+		  .catch(err => console.error(err));
+		</script>
+		<script>
+			const container = document.getElementById('flightsContainer');
+			container.innerHTML = ''; // clear old
+
+			data.flights.forEach(flight => {
+			const card = document.createElement('div');
+			card.style.border = '1px solid #ccc';
+			card.style.padding = '10px';
+			card.style.margin = '10px 0';
+			card.style.borderRadius = '8px';
+
+			card.innerHTML = `
+				<strong>${flight.airlineName}</strong> (${flight.airlineCode}${flight.flightNumber})<br>
+				${flight.origin} → ${flight.destination}<br>
+				Depart: ${flight.departureDateTime}<br>
+				Arrive: ${flight.arrivalDateTime}<br>
+				Price: ₹${flight.fare}<br>
+				Cabin: ${flight.cabinBaggage} | Check-In: ${flight.checkInBaggage}
+			`;
+
+			container.appendChild(card);
+			});
+		</script>
+		
+		<pre id="output"></pre>
 </body>
 
 </html>

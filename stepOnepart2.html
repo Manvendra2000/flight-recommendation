@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><title>Ixigo Step 1</title></head>
+<body>
+  <h3>Search Flights (Ixigo)</h3>
+
+  <input id="from" placeholder="From (e.g. DEL)">
+  <input id="to" placeholder="To (e.g. BOM)">
+  <input id="date" type="date">
+  <select id="cls">
+    <option value="e">Economy</option>
+    <option value="pe">Premium Eco</option>
+    <option value="b">Business</option>
+    <option value="f">First</option>
+  </select>
+
+  <button onclick="fetchSearchToken()">Get Token</button>
+  <pre id="output">Waiting...</pre>
+
+  <script>
+    async function fetchSearchToken() {
+      const from = document.getElementById('from').value.trim().toUpperCase();
+      const to = document.getElementById('to').value.trim().toUpperCase();
+      const rawDate = document.getElementById('date').value;
+      const cls = document.getElementById('cls').value;
+
+      if (!from || !to || !rawDate) {
+        return alert('All fields required');
+      }
+
+      const d = new Date(rawDate);
+      const date = d.toLocaleDateString('en-GB').split('/').join(''); // DDMMYYYY
+
+      const url = `http://localhost:8000/api/flightSearch.php?origin=${from}&destination=${to}&date=${date}&class=${cls}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        document.getElementById('output').textContent = JSON.stringify({
+          token: data.searchToken,
+          provider: data.searchProviderIds?.[0] || 'N/A'
+        }, null, 2);
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error: ' + err;
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- const url = `http://localhost:8000/api/flights.php?origin=${from}&destination=${to}&class=${travelClass}&startDate=${startDate}&endDate=${endDate}`;
+
+fetch(url)
+  .then(res => res.text())
+  .then(text => {
+    try {
+      const data = JSON.parse(text);
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    } catch (e) {
+      document.getElementById('output').textContent = 'Invalid JSON:\n' + text;
+    }
+  });
+} -->
