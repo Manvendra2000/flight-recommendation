@@ -609,6 +609,8 @@
                                                                 </div><button type="button" role="button" class="space-x-200 rtl:space-x-reverse h-form-box-normal text-normal bg-button-secondary-background hover:bg-button-secondary-background-hover active:bg-button-secondary-background-active disabled:bg-button-secondary-background focus:bg-button-secondary-background-focus text-button-secondary-foreground focus:text-button-secondary-foreground-focus active:text-button-secondary-foreground-active hover:text-button-secondary-foreground-hover disabled:text-button-secondary-foreground active:shadow-button-active-pale px-button-padding-md orbit-button-primitive font-base duration-fast group relative max-w-full select-none items-center justify-center border-none text-center leading-none transition-all *:align-middle [&amp;_.orbit-loading-spinner]:stroke-current w-full flex-auto rounded-150 tb:rounded-100 cursor-pointer hover:no-underline focus:no-underline active:no-underline flex font-medium" style="--button-content-align: center;">
                                                                     <div class="orbit-button-primitive-content inline-block [justify-content:var(--button-content-align)] flex-1">Load more</div>
                                                                 </button>
+                                                                <!-- flights details  -->
+                                                                <div id="output" style="display: flex; flex-direction: column; gap: 1rem;"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -624,6 +626,54 @@
                 <!--/$-->
             </div>
     </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+          const p = new URLSearchParams(window.location.search);
+          const from = p.get('origin');
+          const to = p.get('destination');
+          const startDate = formatDate(p.get('startDate'));
+          const endDate = formatDate(p.get('endDate'));
+          const cls = p.get('class');
+        
+          const url = `http://localhost:8000/api/flights.php?origin=${from}&destination=${to}&class=${cls}&startDate=${startDate}&endDate=${endDate}`;
+          const res = await fetch(url);
+          const data = await res.json();
+        
+          const results = data?.data?.going?.results || [];
+          const container = document.getElementById('output');
+          container.innerHTML = '';
+        
+          if (!results.length) {
+            container.textContent = 'No flights found.';
+            return;
+          }
+        
+          results.forEach(flight => {
+            const card = document.createElement('div');
+            card.style = `
+              padding: 16px;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              font-family: sans-serif;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+              margin-bottom: 1rem;
+            `;
+            card.innerHTML = `
+              <strong>${flight.airline} (${flight.airlineCode})</strong><br>
+              Flight No: ${flight.flightNumber || 'N/A'}<br>
+              Date: ${flight.date}<br>
+              Price: ₹${flight.fare.toLocaleString()}<br>
+            `;
+            container.appendChild(card);
+          });
+        });
+        
+        function formatDate(dateStr) {
+          const d = new Date(dateStr);
+          return String(d.getDate()).padStart(2, '0') + String(d.getMonth() + 1).padStart(2, '0') + d.getFullYear();
+        }
+        </script>
 </body>
 
 </html>
