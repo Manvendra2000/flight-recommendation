@@ -2,16 +2,78 @@
 <html>
 <head>
   <title>Flight Search</title>
+  <!-- <style>
+    .autocomplete-container {
+  position: relative;
+  width: 300px;
+}
+
+#fromInput {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+  </style> -->
+<style>
+.autocomplete-dropdown {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 10;
+  display: none;
+}
+
+.autocomplete-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.autocomplete-item:hover {
+  background-color: #eee;
+}
+</style>
+ 
 </head>
+
 <body>
+
+
     <h3>Flight Search Test</h3>
 
-    <label>From (IATA):</label>
-    <input id="fromInput" placeholder="DEL"><br><br>
-  
-    <label>To (IATA):</label>
-    <input id="toInput" placeholder="BOM"><br><br>
-  
+    <input type="text" id="fromInput" placeholder="From location" />
+    <div id="fromDropdown" class="autocomplete-dropdown"></div>
+    
+    <input type="text" id="toInput" placeholder="To location" />
+    <div id="toDropdown" class="autocomplete-dropdown"></div></br></br>
+    
     <label>Departure Date:</label>
     <input id="departure" type="date"><br><br>
   
@@ -28,5 +90,8 @@
 
     <pre id="output">Waiting...</pre>
   <script src="js/script.js"></script>
+  <script src="js/autocomplete.js"></script>
+
+  
 </body>
 </html>

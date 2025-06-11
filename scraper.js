@@ -37,4 +37,6 @@ async function scrapeIxigo(origin, destination, date) {
 }
 
 // Test it
-scrapeIxigo('DEL', 'JAI', '08072025').then(console.log).catch(console.error);
+// scrapeIxigo('DEL', 'JAI', '08072025').then(console.log).catch(console.error);
+
+module.exports = scrapeIxigo; // Make sure this is at the bottom
