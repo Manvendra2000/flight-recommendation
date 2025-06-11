@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+
+	<!-- Litepicker CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 </head>
 <body>
 
@@ -75,6 +78,7 @@
 				</h3>
 				<p> Book cheap flights other sites simply can’t find. </p>
 				<div class="banner_form">
+					<div id="warningMessage" style="color: red; display: none; margin-top: 10px;"></div>
 					<div class="form_dropdowns">
 						<ul>
 				            <li class="dropdown">
@@ -113,22 +117,22 @@
 						        <ul class="dropdown-menu custom-dropdown-menu">
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Economy')">
 						                <input type="radio" id="Economy" name="trip-type-2" checked>
-						                <label for="Economy" value="e">Economy</label>
+						                <label for="Economy">Economy</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Premium Economy')">
 						                <input type="radio" id="Premium" name="trip-type-2">
-						                <label for="Premium" value="pe">Premium Economy</label>
+						                <label for="Premium">Premium Economy</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Business')">
-						                <input type="radio" id="Business" name="trip-type-2" value="b" >
+						                <input type="radio" id="Business" name="trip-type-2">
 						                <label for="Business">Business</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'First Class')">
 						                <input type="radio" id="FirstClass" name="trip-type-2">
-						                <label for="FirstClass" value="f" >First Class</label>
+						                <label for="FirstClass">First Class</label>
 						            </a></li>
 						            <li><a class="dropdown-item" href="javascript:;" onclick="selectOption(this, 'Apply mixed classes')">
-						                <input type="radio" id="mixed-classe" name="trip-type-2" value="cm" >
+						                <input type="radio" id="mixed-classe" name="trip-type-2">
 						                <label for="mixed-classe">Apply mixed classes</label>
 						            </a></li>
 						        </ul>
@@ -211,93 +215,55 @@
 						    </li>
 						</ul>
 					</div>
-					<div class="row bsgutter10">
-						<div class="col-md-11 col-lg-11 width90">
-							<div class="row bsgutter10">
-								<div class="col-md-3 col-lg-3">
-								    <!-- <div class="form_field">
-								        <div class="input-group autocomplete-container fromInput">
-								            <span class="input-group-text" onclick="triggerInputClick('fromInput', 'fromDropdown', 'selectedFromLocations')">From</span>
-								            <div id="selectedFromLocations" class="selected-locations"></div>
-								            <input type="text" id="fromInput" class="form-control" placeholder="City, airport or place" onclick="filterDropdown('fromInput', 'fromDropdown', 'selectedFromLocations')" />
-								        </div>
-								        <div id="fromDropdown" class="autocomplete-dropdown"></div>
-								    </div> -->
-									<div class="autocomplete-container">
-										<input type="text" id="fromInput" placeholder="City, airport or place" />
-										<div id="fromDropdown" class="autocomplete-dropdown"></div>
-									</div>
-								</div>
+					<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-								<div class="col-md-3 col-lg-3">
-								    <div class="form_field">
-								        <div class="input-group autocomplete-container toInput">
-								            <span class="input-group-text" onclick="triggerInputClick('toInput', 'toDropdown', 'selectedToLocations')">To</span>
-								            <div id="selectedToLocations" class="selected-locations"></div>
-								            <input type="text" id="toInput" class="form-control" placeholder="City, airport or place" onclick="filterDropdown('toInput', 'toDropdown', 'selectedToLocations')" />
-								        </div>
-								        <div id="toDropdown" class="autocomplete-dropdown"></div>
-								    </div>
-								</div>
-
-								<div class="col-md-6 col-lg-6">
-									<div class="calendar_outer">
-										<div class="row bsgutter10">
-											<div class="col-md-6 col-lg-6">
-											    <div class="input-group">
-											        <span class="input-group-text">    <label>Departure Date:</label>
-														<input id="departure" type="date"><br><br></span>
-											        <!-- <input type="text" class="form-control" id="departure" placeholder="Anytime" readonly onclick="toggleDatePicker()"> -->
-											    </div>
-											</div>
-
-											<div class="col-md-6 col-lg-6">
-											    <div class="input-group">
-											        <span class="input-group-text"> <label>Return Date:</label>
-														<input id="returnDate" type="date"><br><br></span>
-											        <!-- <input type="text" class="form-control" id="return" placeholder="Anytime" readonly onclick="toggleDatePicker()"> -->
-											    </div>
-											</div>
-										</div>
-										<div class="datepicker-container" id="datepicker" style="display: none;">
-									        <div class="calendar">
-									            <div class="month">
-									            	<div class="three_btns">
-									            		<ul>
-									            			<li> <a href="javascript:;"> <img src="images/day1.png"> </a> </li>
-									            			<li> <a href="javascript:;"> <img src="images/day3.png"> </a> </li>
-									            			<li> <a href="javascript:;"> <img src="images/day5.png"> </a> </li>
-									            		</ul>
-									            	</div>
-									                <h2><img src="images/arrowLeft.png">March 2025</h2>
-									                <div class="days" id="march"></div>
-									            </div>
-									            <div class="month">
-									            	<div class="three_btns">
-									            		<ul>
-									            			<li> <a href="javascript:;"> <img src="images/day1.png"> </a> </li>
-									            			<li> <a href="javascript:;"> <img src="images/day3.png"> </a> </li>
-									            			<li> <a href="javascript:;"> <img src="images/day5.png"> </a> </li>
-									            		</ul>
-									            	</div>
-									                <h2>April 2025<img style="right: 0; left: auto;" src="images/arrowRight.png"></h2>
-									                <div class="days" id="april"></div>
-									            </div>
-									        </div>
-									        <div class="buttons">
-									            <button class="cancelButton" onclick="clearDates()">Cancel</button>
-									            <button class="setButton" onclick="setDates()">Set dates</button>
-									        </div>
-									    </div>
-									</div>
-								</div>
-
-							</div>
+					<div class="container py-3">
+					  <div class="row g-2 align-items-center justify-content-center">
+						
+						<!-- From to fetchFlights() -->
+						<div class="col-md-2 col-sm-6">
+						  <div class="border rounded px-3 py-2 d-flex align-items-center justify-content-between">
+							<span class="fw-semibold">From</span>
+							<div style="flex: 1; position: relative;">
+							<input type="text" class="form-control border-0 p-0 ms-2" placeholder="City, airport or place" style="box-shadow: none;" id="fromInput">
+							<div id="fromDropdown" class="autocomplete-dropdown"></div></div>
+						  </div>
 						</div>
-						<div class="col-md-1 col-lg-1 width10">
-							<!-- <button type="button" class="exploreBtn" id="exploreBtn" onclick="fetchFlights()"> Explore </button> -->
-							<button type="button" class="exploreBtn" id="exploreBtn" onclick="redirectWithParams()">Explore</button>
+					
+						<!-- To -->
+						<div class="col-md-2 col-sm-6">
+						  <div class="border rounded px-3 py-2 d-flex align-items-center justify-content-between">
+							<span class="fw-semibold">To</span>
+							<div style="flex: 1; position: relative;">
+							<input type="text" class="form-control border-0 p-0 ms-2" placeholder="City, airport or place" style="box-shadow: none;" id="toInput">
+							<div id="toDropdown" class="autocomplete-dropdown"></div></div>
+						  </div>
 						</div>
+				
+						<div class="col-md-3 col-lg-3">
+							<div class="border rounded px-3 py-2 d-flex align-items-center justify-content-between">
+							<button id="dateTrigger" class="form-control d-flex justify-content-between align-items-center">
+							  <span><strong>Departure</strong> <span id="departureText" class="text-secondary">Anytime</span></span>
+							  <input type="hidden" id="departure">
+							</button>
+						  </div></div>
+						  
+						  <div class="col-md-3 col-lg-3">
+							<div class="border rounded px-3 py-2 d-flex align-items-center justify-content-between">
+							<button id="dateTrigger" class="form-control d-flex justify-content-between align-items-center">
+							  <span><strong>Return</strong> <span id="returnText" class="text-secondary">Anytime</span></span>
+							  <!-- Hidden inputs for real form submission -->
+							<input type="hidden" id="returnDate">
+							</button>
+						  </div></div>
+
+					
+					
+							<!-- Explore Button -->
+							<div class="col-md-2 col-sm-6">
+							<button onclick="fetchFlights()" type="button" class="btn btn-teal w-100" style="background-color: #00b39f; color: white;">Explore</button>
+							</div>					
+						</div>					
 					</div>
 					<div class="checkbooking">
 						<input type="checkbox" id="html" />
@@ -367,7 +333,7 @@
 						 </div>
 					</div>
 					<div class="form-group">
-						<button type="button" class="exploreBtn" onclick="fetchFlights()"> Explore </button>
+						<button type="button" class="exploreBtn"> Explore </button>
 					</div>
 					<div class="checkbooking">
 						<input type="checkbox" id="html" />
@@ -775,8 +741,7 @@
     </ul>
   </div>
 
-<!-- javascript files -->
-<script src="/js/script.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -806,6 +771,183 @@
         }
     </script>
 
+<script>
+ const places = {
+            "Your locations": [
+                { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
+                { name: "London, United Kingdom", icon: "<img src='images/drop1.png' width='20' height='20'>" }
+            ],
+            "Near you": [
+                { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
+                { name: "250 km around Indore", icon: "<img src='images/drop2.png' width='20' height='20'>" },
+                { name: "IDR Indore - Devi Ahilya Bai Holkar", icon: "<img src='images/drop1.png' width='20' height='20'>" }
+            ]
+        };
+
+
+        function filterDropdown(inputId, dropdownId, selectedContainerId) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+            const inputValue = input.value.trim().toLowerCase();
+
+            dropdown.innerHTML = "";
+            let hasResults = false;
+
+            Object.keys(places).forEach(category => {
+                const filteredItems = places[category].filter(place => place.name.toLowerCase().includes(inputValue));
+
+                if (filteredItems.length > 0) {
+                    hasResults = true;
+                    const groupLabel = document.createElement("div");
+                    groupLabel.className = "group-label";
+                    groupLabel.textContent = category;
+                    dropdown.appendChild(groupLabel);
+
+                    filteredItems.forEach(place => {
+                        const div = document.createElement("div");
+                        div.className = "autocomplete-item";
+                        div.innerHTML = `<span class='icon'>${place.icon}</span> ${place.name} <span class='plus-icon'>+</span>`;
+                        div.onclick = () => selectLocation(place.name, selectedContainerId, inputId, dropdownId);
+                        dropdown.appendChild(div);
+                    });
+                }
+            });
+
+            dropdown.style.display = hasResults ? "block" : "none";
+        }
+
+       function removeLocation(element, inputId) {
+    const selectedContainer = element.parentElement.parentElement;
+    element.parentElement.remove();
+    checkAndDisplayMergeIcon();
+
+    const input = document.getElementById(inputId);
+    const inputParent = input.parentElement; // Get the input's parent element
+
+    // Restore placeholder if no selections remain
+    if (selectedContainer.children.length === 1) { // Only "More" button remains
+        input.placeholder = "City, airport or place";
+        document.getElementById(`moreBtn-${selectedContainer.id}`).remove();
+    }
+
+    // If no selected locations remain, add red border to input's parent
+    if (selectedContainer.children.length === 0) {
+        inputParent.style.border = "2px solid red";
+    }
+}
+
+// Ensure the border is removed when a location is selected
+function selectLocation(location, selectedContainerId, inputId, dropdownId) {
+    const input = document.getElementById(inputId);
+    input.value = "";
+    input.placeholder = ""; // Hide placeholder after selection
+    document.getElementById(dropdownId).style.display = "none";
+
+    const inputParent = input.parentElement; // Get the input's parent element
+    inputParent.style.border = ""; // Remove red border on selection
+
+    const selectedLocations = document.getElementById(selectedContainerId);
+
+    if (selectedLocations.children.length >= 2) return;
+
+    const selectedDiv = document.createElement("div");
+    selectedDiv.className = "selected-location";
+    selectedDiv.innerHTML = `
+        <span>${location}</span> 
+        <span class='remove-icon' onclick='removeLocation(this, "${inputId}")'>×</span>
+    `;
+
+    selectedLocations.appendChild(selectedDiv);
+
+    if (selectedLocations.children.length === 1) {
+        addMoreButton(selectedContainerId, inputId);
+    }
+
+    checkAndDisplayMergeIcon();
+}
+
+function addMoreButton(selectedContainerId, inputId) {
+    const selectedLocations = document.getElementById(selectedContainerId);
+    
+    // Check if "More" button already exists
+    if (document.getElementById(`moreBtn-${selectedContainerId}`)) return;
+
+    // Create "More" button
+    const moreBtn = document.createElement("button");
+    moreBtn.id = `moreBtn-${selectedContainerId}`;
+    moreBtn.className = "more-btn";
+    moreBtn.innerText = "Add more";
+    moreBtn.onclick = () => {
+        document.getElementById(inputId).focus();
+    };
+
+    selectedLocations.appendChild(moreBtn);
+}
+
+function checkAndDisplayMergeIcon() {
+    const fromSelected = document.getElementById("selectedFromLocations").children.length > 0;
+    const toSelected = document.getElementById("selectedToLocations").children.length > 0;
+    const mergeIcon = document.getElementById("mergeIcon");
+
+    if (fromSelected && toSelected) {
+        if (!mergeIcon) {
+            const mergeDiv = document.createElement("div");
+            mergeDiv.id = "mergeIcon";
+            mergeDiv.className = "merge-icon";
+            mergeDiv.innerHTML = "<img class='swipeB' src='images/swipeB.png' /><img class='swipeW' style='display: none;' src='images/swipeW.png' />"; // Merge icon
+            document.querySelector(".input-group.autocomplete-container").after(mergeDiv);
+        }
+    } else {
+        if (mergeIcon) mergeIcon.remove();
+    }
+}
+
+function triggerInputClick(inputId, dropdownId, selectedContainerId) {
+    const input = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+
+    input.focus(); // Set focus on the input
+    filterDropdown(inputId, dropdownId, selectedContainerId); // Manually trigger dropdown display
+
+    // Ensure dropdown is visible
+    dropdown.style.display = "block";
+}
+
+
+document.addEventListener("click", function (event) {
+    const dropdowns = document.querySelectorAll(".autocomplete-dropdown");
+    dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+});
+
+
+</script>
+
+
+
+<script>
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     let returnPicker = flatpickr("#return", {
+    //         dateFormat: "D, d M",
+    //         minDate: "today",
+    //         showMonths: 2
+    //     });
+
+    //     flatpickr("#departure", {
+    //         dateFormat: "D, d M",
+    //         minDate: "today",
+    //         showMonths: 2,
+    //         onChange: function(selectedDates, dateStr) {
+    //             returnPicker.set("minDate", dateStr); // Update return date min value
+    //             document.getElementById("return").focus(); // Auto jump to return input
+    //             returnPicker.open(); // Open return date picker
+    //         }
+    //     });
+    // });
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -937,7 +1079,7 @@ changeWord();
 setInterval(changeWord, 4000);
 
 </script>
-
+<!-- 
 	<script>
 	         let departureDate = null;
         let returnDate = null;
@@ -1013,7 +1155,7 @@ setInterval(changeWord, 4000);
 
         generateCalendar("march", 31);
         generateCalendar("april", 30);
-    </script>
+    </script> -->
 
     <script>
     	document.addEventListener("DOMContentLoaded", function () {
@@ -1037,22 +1179,157 @@ setInterval(changeWord, 4000);
     });
 });
     </script>
+		<script>
+			function redirectWithParams() {
+				const from = document.getElementById('fromInput').value.trim().toUpperCase();
+				const to = document.getElementById('toInput').value.trim().toUpperCase();
+				const start = document.getElementById('departure').value;
+				const end = document.getElementById('returnDate').value;
+				const cls = document.querySelector('input[name="trip-type-2"]:checked').value;
+	
+			
+			  const url = `search.html?origin=${from}&destination=${to}&startDate=${start}&endDate=${end}&class=${cls}`;
+			  window.location.href = url;
+			}
+			</script>
+	<script src="/js/autocomplete.js" ></script>
+	<script src="js/flights.js" ></script>
+	<script src="js/calendar.js"></script>
 
-	<!-- <script src="js/script.js"></script> -->
-	<script>
-		function redirectWithParams() {
-			const from = document.getElementById('fromInput').value.trim().toUpperCase();
-			const to = document.getElementById('toInput').value.trim().toUpperCase();
-			const start = document.getElementById('departure').value;
-			const end = document.getElementById('returnDate').value;
-			const cls = document.querySelector('input[name="trip-type-2"]:checked').value;
 
-		
-		  const url = `search.html?origin=${from}&destination=${to}&startDate=${start}&endDate=${end}&class=${cls}`;
-		  window.location.href = url;
-		}
-		</script>
-		<script src="js/autocomplete.js" defer></script>
+<!-- Litepicker JS -->
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+const departureText = document.getElementById('departureText');
+const returnText = document.getElementById('returnText');
+
+const departureInput = document.getElementById('departure');
+const returnInput = document.getElementById('returnDate');
+
+const picker = new Litepicker({
+  element: document.getElementById('dateTrigger'),
+  singleMode: false,
+  numberOfMonths: 2,
+  numberOfColumns: 2,
+  format: 'MMM D, YYYY',
+  tooltipText: {
+    one: 'day',
+    other: 'days'
+  },
+
+  setup: (picker) => {
+    picker.on('selected', (start, end) => {
+      // UI display
+      departureText.textContent = start.format('MMMM D, YYYY');
+      returnText.textContent = end.format('MMMM D, YYYY');
+
+      // Set real form values
+      departureInput.value = start.format('YYYY-MM-DD');
+      returnInput.value = end.format('YYYY-MM-DD');
+    });
+
+// 	picker.on('render', () => {
+//     // Prevent duplicate buttons
+//     if (picker.ui.querySelector('.custom-footer')) return;
+
+//     const footer = document.createElement('div');
+//     footer.className = 'custom-footer';
+//     footer.style.cssText = `
+//       display: flex;
+//       justify-content: flex-end;
+//       gap: 10px;
+//       padding: 10px 15px;
+//       border-top: 1px solid #ddd;
+//       margin-top: 10px;
+//     `;
+	
+
+//     const cancelBtn = document.createElement('button');
+//     cancelBtn.textContent = 'Cancel';
+//     cancelBtn.className = 'btn btn-sm btn-secondary';
+//     cancelBtn.onclick = () => picker.hide();
+
+//     const setBtn = document.createElement('button');
+//     setBtn.textContent = 'Set Dates';
+//     setBtn.className = 'btn btn-sm btn-primary';
+//     setBtn.onclick = () => {
+//       const [start, end] = picker.getDateRange();
+//       departureText.textContent = start.format('MMMM D, YYYY');
+//       returnText.textContent = end.format('MMMM D, YYYY');
+//       departureInput.value = start.format('YYYY-MM-DD');
+//       returnInput.value = end.format('YYYY-MM-DD');
+//       picker.hide();
+//     };
+
+//     footer.append(cancelBtn, setBtn);
+//     picker.ui.querySelector('.container__main').appendChild(footer);
+//   });
+picker.on('render', () => {
+  const wrapper = picker.ui.querySelector('.container__main').parentElement;
+  if (!wrapper || wrapper.querySelector('.custom-footer')) return;
+
+  const footer = document.createElement('div');
+  footer.className = 'custom-footer';
+  footer.innerHTML = `
+    <button class="btn btn-light me-2">Cancel</button>
+    <button class="btn" style="background-color: #01B39F; color: white;">Set Dates</button>
+  `;
+  footer.style.cssText = `
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    width: 100%;
+    box-sizing: border-box;
+  `;
+
+  wrapper.appendChild(footer); // Not inside container__main
+});
+
+//   picker.on('render', () => {
+//   const container = picker.ui.querySelector('.container__main');
+//   if (!container || container.querySelector('.custom-footer')) return;
+
+//   const footer = document.createElement('div');
+//   footer.className = 'custom-footer';
+//   footer.innerHTML = `
+//     <button class="btn btn-light me-2">Cancel</button>
+//     <button class="btn btn-success">Set Dates</button>
+//   `;
+//   footer.style.cssText = `
+//     display: flex;
+//     justify-content: flex-end;
+//     gap: 10px;
+//     padding: 10px 15px;
+//     border-top: 1px solid #eee;
+//     margin-top: 10px;
+//     width: 100%;
+//     box-sizing: border-box;
+//   `;
+
+//   container.appendChild(footer);
+// });
+picker.on('render', () => {
+  const headers = picker.ui.querySelectorAll('.month-item-header > div');
+
+  headers.forEach(header => {
+    // Avoid wrapping again
+    if (header.closest('button')) return;
+
+    const wrapper = document.createElement('button');
+    wrapper.className = '_m1nxt';
+    // wrapper.style.all = 'unset'; // Optional: remove default button styling
+    wrapper.style.cursor = 'pointer'; // Make it look clickable
+
+    wrapper.appendChild(header.cloneNode(true));
+    header.replaceWith(wrapper);
+  });
+});
+  },
+  plugins: ['ranges']
+});
+</script>
 
 </body>
 </html>
