@@ -1,0 +1,57 @@
+[
+    {
+      "airline": "6E",
+      "flightNumber": "",
+      "dep": "06:00",
+      "arr": "08:10",
+      "duration": "2h 10m",
+      "price": "₹3,799",
+      "baggage": "Baggage info available"
+    },
+    {
+      "airline": "SG",
+      "flightNumber": "SG711",
+      "dep": "21:40",
+      "arr": "23:55",
+      "duration": "2h 15m",
+      "price": "₹4,490",
+      "baggage": "20kg"
+    },
+    {
+        "airline": "6E",
+        "flightNumber": "",
+        "dep": "06:00",
+        "arr": "08:10",
+        "duration": "2h 10m",
+        "price": "₹3,799",
+        "baggage": "Baggage info available"
+      },
+      {
+        "airline": "SG",
+        "flightNumber": "SG711",
+        "dep": "21:40",
+        "arr": "23:55",
+        "duration": "2h 15m",
+        "price": "₹4,490",
+        "baggage": "20kg"
+      },
+      {
+        "airline": "6E",
+        "flightNumber": "",
+        "dep": "06:00",
+        "arr": "08:10",
+        "duration": "2h 10m",
+        "price": "₹3,799",
+        "baggage": "Baggage info available"
+      },
+      {
+        "airline": "SG",
+        "flightNumber": "SG711",
+        "dep": "21:40",
+        "arr": "23:55",
+        "duration": "2h 15m",
+        "price": "₹4,490",
+        "baggage": "20kg"
+      }
+    
+  ]

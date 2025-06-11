@@ -23,10 +23,11 @@ async function scrapeFlightDetail(url) {
 
     return {
       airline: getText('[data-testid="airline-number"]').split('|')[0]?.trim(),
-      flightNumber: getText('[data-testid="airline-number"]').split('|')[1]?.trim(),
-      from: getText('.min-w-[140px].text-left h4'),
-      to: getText('.text-right.w-[140px] h4'),
-      duration: getText('.min-w-[60px].text-center p'),
+      from: getText('h4.h4.text-primary.mb-5.font-medium'),
+      to: getText('h4.h4.text-primary.mb-5.font-medium'),
+      // duration: getText('p.body-sm.text-secondary'),
+      // duration: getText('["min-w-[60px] text-center mt-30"]'),
+      duration: Array.from(document.querySelectorAll('p')).map(p => p.innerText).find(text => /\d+h \d+m/.test(text)) || '',
       cabinBaggage: getInfoByLabel('Cabin :'),
       checkinBaggage: getInfoByLabel('Check-in :'),
     };
@@ -37,6 +38,6 @@ async function scrapeFlightDetail(url) {
 }
 
 // 🔍 Example usage
-scrapeFlightDetail('https://www.ixigo.com/flight/booking/1044/1q4h30lhpupztvhhdhphphqhh96ohpzpztptvdtvudvdkv?fareKey=DEL-BOM-AI2421-08062025&providers=1044&hbo=false&ftk=DEL%7CBOM%7C080625%7C%7C1%7C0%7C0%7Ce%7CINR%7C06062025125815145%241044%7CDEL-BOM-AI2421%7Cfalse%7Ctrue%7C9250190.61~7278.0~9256993.0~9256906.39~9249715.0~b5e47c78-27d2-4d3b-a65b-ea2bd9c6a60e&source=Search%20Form') // your full detail URL
+scrapeFlightDetail('https://www.ixigo.com/flight/booking/1044/1q4h30lhddpztvhhdhphphqhh96ohdppztptvdvswptztu?fareKey=DEL-BOM-IX1145-11062025&providers=1044&hbo=false&ftk=DEL%7CBOM%7C110625%7C%7C1%7C0%7C0%7Ce%7CINR%7C10062025153702628%241044%7CDEL-BOM-IX1145%7Cfalse%7Ctrue%7C9250171.09~7850.0~9257565.0~9257497.91~9249715.0~73563b08-9449-4652-b28a-5d6bbe29b82b&source=Search%20Form') // your full detail URL
   .then(console.log)
   .catch(console.error);

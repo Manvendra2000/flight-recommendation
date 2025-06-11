@@ -1,6 +1,4 @@
 function fetchFlights() {
-  const from = document.getElementById('fromInput').value.trim().toUpperCase();
-  const to = document.getElementById('toInput').value.trim().toUpperCase();
   const startDateRaw = document.getElementById('departure').value;
   const endDateRaw = document.getElementById('returnDate').value;
   const travelClass = document.querySelector('input[name="trip-type-2"]:checked').value;
@@ -8,7 +6,11 @@ function fetchFlights() {
   const startDate = formatDate(startDateRaw); // to DDMMYYYY
   const endDate = formatDate(endDateRaw);
 
-  const url = `http://localhost:8000/api/flights.php?origin=${from}&destination=${to}&class=${travelClass}&startDate=${startDate}&endDate=${endDate}`;
+  // ✅ Use stored airport codes
+  const origin = selectedFromCode;
+  const destination = selectedToCode;
+
+  const url = `http://localhost:8000/api/flights.php?origin=${origin}&destination=${destination}&class=${travelClass}&startDate=${startDate}&endDate=${endDate}`;
 
   fetch(url)
     .then(res => res.text())

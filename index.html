@@ -215,14 +215,18 @@
 						<div class="col-md-11 col-lg-11 width90">
 							<div class="row bsgutter10">
 								<div class="col-md-3 col-lg-3">
-								    <div class="form_field">
+								    <!-- <div class="form_field">
 								        <div class="input-group autocomplete-container fromInput">
 								            <span class="input-group-text" onclick="triggerInputClick('fromInput', 'fromDropdown', 'selectedFromLocations')">From</span>
 								            <div id="selectedFromLocations" class="selected-locations"></div>
 								            <input type="text" id="fromInput" class="form-control" placeholder="City, airport or place" onclick="filterDropdown('fromInput', 'fromDropdown', 'selectedFromLocations')" />
 								        </div>
 								        <div id="fromDropdown" class="autocomplete-dropdown"></div>
-								    </div>
+								    </div> -->
+									<div class="autocomplete-container">
+										<input type="text" id="fromInput" placeholder="City, airport or place" />
+										<div id="fromDropdown" class="autocomplete-dropdown"></div>
+									</div>
 								</div>
 
 								<div class="col-md-3 col-lg-3">
@@ -802,183 +806,6 @@
         }
     </script>
 
-<script>
- const places = {
-            "Your locations": [
-                { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
-                { name: "London, United Kingdom", icon: "<img src='images/drop1.png' width='20' height='20'>" }
-            ],
-            "Near you": [
-                { name: "Indore, India", icon: "<img src='images/drop1.png' width='20' height='20'>" },
-                { name: "250 km around Indore", icon: "<img src='images/drop2.png' width='20' height='20'>" },
-                { name: "IDR Indore - Devi Ahilya Bai Holkar", icon: "<img src='images/drop1.png' width='20' height='20'>" }
-            ]
-        };
-
-
-        function filterDropdown(inputId, dropdownId, selectedContainerId) {
-            const input = document.getElementById(inputId);
-            const dropdown = document.getElementById(dropdownId);
-            const inputValue = input.value.trim().toLowerCase();
-
-            dropdown.innerHTML = "";
-            let hasResults = false;
-
-            Object.keys(places).forEach(category => {
-                const filteredItems = places[category].filter(place => place.name.toLowerCase().includes(inputValue));
-
-                if (filteredItems.length > 0) {
-                    hasResults = true;
-                    const groupLabel = document.createElement("div");
-                    groupLabel.className = "group-label";
-                    groupLabel.textContent = category;
-                    dropdown.appendChild(groupLabel);
-
-                    filteredItems.forEach(place => {
-                        const div = document.createElement("div");
-                        div.className = "autocomplete-item";
-                        div.innerHTML = `<span class='icon'>${place.icon}</span> ${place.name} <span class='plus-icon'>+</span>`;
-                        div.onclick = () => selectLocation(place.name, selectedContainerId, inputId, dropdownId);
-                        dropdown.appendChild(div);
-                    });
-                }
-            });
-
-            dropdown.style.display = hasResults ? "block" : "none";
-        }
-
-       function removeLocation(element, inputId) {
-    const selectedContainer = element.parentElement.parentElement;
-    element.parentElement.remove();
-    checkAndDisplayMergeIcon();
-
-    const input = document.getElementById(inputId);
-    const inputParent = input.parentElement; // Get the input's parent element
-
-    // Restore placeholder if no selections remain
-    if (selectedContainer.children.length === 1) { // Only "More" button remains
-        input.placeholder = "City, airport or place";
-        document.getElementById(`moreBtn-${selectedContainer.id}`).remove();
-    }
-
-    // If no selected locations remain, add red border to input's parent
-    if (selectedContainer.children.length === 0) {
-        inputParent.style.border = "2px solid red";
-    }
-}
-
-// Ensure the border is removed when a location is selected
-function selectLocation(location, selectedContainerId, inputId, dropdownId) {
-    const input = document.getElementById(inputId);
-    input.value = "";
-    input.placeholder = ""; // Hide placeholder after selection
-    document.getElementById(dropdownId).style.display = "none";
-
-    const inputParent = input.parentElement; // Get the input's parent element
-    inputParent.style.border = ""; // Remove red border on selection
-
-    const selectedLocations = document.getElementById(selectedContainerId);
-
-    if (selectedLocations.children.length >= 2) return;
-
-    const selectedDiv = document.createElement("div");
-    selectedDiv.className = "selected-location";
-    selectedDiv.innerHTML = `
-        <span>${location}</span> 
-        <span class='remove-icon' onclick='removeLocation(this, "${inputId}")'>×</span>
-    `;
-
-    selectedLocations.appendChild(selectedDiv);
-
-    if (selectedLocations.children.length === 1) {
-        addMoreButton(selectedContainerId, inputId);
-    }
-
-    checkAndDisplayMergeIcon();
-}
-
-function addMoreButton(selectedContainerId, inputId) {
-    const selectedLocations = document.getElementById(selectedContainerId);
-    
-    // Check if "More" button already exists
-    if (document.getElementById(`moreBtn-${selectedContainerId}`)) return;
-
-    // Create "More" button
-    const moreBtn = document.createElement("button");
-    moreBtn.id = `moreBtn-${selectedContainerId}`;
-    moreBtn.className = "more-btn";
-    moreBtn.innerText = "Add more";
-    moreBtn.onclick = () => {
-        document.getElementById(inputId).focus();
-    };
-
-    selectedLocations.appendChild(moreBtn);
-}
-
-function checkAndDisplayMergeIcon() {
-    const fromSelected = document.getElementById("selectedFromLocations").children.length > 0;
-    const toSelected = document.getElementById("selectedToLocations").children.length > 0;
-    const mergeIcon = document.getElementById("mergeIcon");
-
-    if (fromSelected && toSelected) {
-        if (!mergeIcon) {
-            const mergeDiv = document.createElement("div");
-            mergeDiv.id = "mergeIcon";
-            mergeDiv.className = "merge-icon";
-            mergeDiv.innerHTML = "<img class='swipeB' src='images/swipeB.png' /><img class='swipeW' style='display: none;' src='images/swipeW.png' />"; // Merge icon
-            document.querySelector(".input-group.autocomplete-container").after(mergeDiv);
-        }
-    } else {
-        if (mergeIcon) mergeIcon.remove();
-    }
-}
-
-function triggerInputClick(inputId, dropdownId, selectedContainerId) {
-    const input = document.getElementById(inputId);
-    const dropdown = document.getElementById(dropdownId);
-
-    input.focus(); // Set focus on the input
-    filterDropdown(inputId, dropdownId, selectedContainerId); // Manually trigger dropdown display
-
-    // Ensure dropdown is visible
-    dropdown.style.display = "block";
-}
-
-
-document.addEventListener("click", function (event) {
-    const dropdowns = document.querySelectorAll(".autocomplete-dropdown");
-    dropdowns.forEach(dropdown => {
-        if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
-            dropdown.style.display = "none";
-        }
-    });
-});
-
-
-</script>
-
-
-
-<script>
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     let returnPicker = flatpickr("#return", {
-    //         dateFormat: "D, d M",
-    //         minDate: "today",
-    //         showMonths: 2
-    //     });
-
-    //     flatpickr("#departure", {
-    //         dateFormat: "D, d M",
-    //         minDate: "today",
-    //         showMonths: 2,
-    //         onChange: function(selectedDates, dateStr) {
-    //             returnPicker.set("minDate", dateStr); // Update return date min value
-    //             document.getElementById("return").focus(); // Auto jump to return input
-    //             returnPicker.open(); // Open return date picker
-    //         }
-    //     });
-    // });
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1225,6 +1052,7 @@ setInterval(changeWord, 4000);
 		  window.location.href = url;
 		}
 		</script>
+		<script src="js/autocomplete.js" defer></script>
 
 </body>
 </html>
