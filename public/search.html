@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Results</title>
+  <style>
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-family: Arial;
+    }
+    .card img { width: 50px; }
+    .times { text-align: center; }
+    .book-btn {
+      background: #01b39f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Flight Search Results</h2>
+  <div id="results"></div>
+
+  <script src="main.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flight Search</title>
+  <!-- <style>
+    .card { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 10px; max-width: 300px; font-family: sans-serif; }
+    .card img { width: 50px; }
+    .btn-book { background: #01b39f; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+  </style> -->
+  <style>
+    #flightCards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .flight-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-family: sans-serif;
+    }
+  
+    .flight-card img {
+      width: 60px;
+      height: auto;
+    }
+  
+    .flight-card button {
+      background-color: #01b39f;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Available Flights</h2>
+  <div id="flights-container"></div>
+  <div id="flightCards"></div>
+
+  <script>
+    async function loadFlights() {
+      try {
+        const res = await fetch('http://localhost:3000/api/flights?from=DEL&to=BOM&date=10062025');
+        const flights = await res.json();
+    
+        if (!Array.isArray(flights)) {
+          console.error('Invalid flights data:', flights);
+          return;
+        }
+    
+        const container = document.getElementById('flightCards');
+        container.innerHTML = '';
+    
+        flights.forEach(flight => {
+          const card = document.createElement('div');
+          card.className = 'flight-card';
+          card.innerHTML = `
+            <img src="images/flights/${flight.airline}.png" alt="${flight.airline}" />
+            <p><strong>${flight.airline}</strong> ${flight.flightNumber}</p>
+            <p>Dep: ${flight.dep} → Arr: ${flight.arr}</p>
+            <p>Duration: ${flight.duration}</p>
+            <p>Price: ${flight.price}</p>
+            <p>${flight.baggage}</p>
+            <button style="background-color:#01b39f;">Book</button>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Fetch error:', err);
+      }
+    }
+    loadFlights();
+    </script>
+</body>
+</html>
