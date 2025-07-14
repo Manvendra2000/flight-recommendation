@@ -73,6 +73,7 @@ These can be manually entered in the frontend fields to fetch specific flight in
 
 ⸻
 
+
 🛠️ License
 
 MIT – Use it freely, modify and extend for learning or internal tools.
